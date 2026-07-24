@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect x="0" y="0" width="1280" height="720" fill="#FDE047"/>
+  <rect x="80" y="510" width="1120" height="8" fill="#7C3AED"/>
+  <text x="80" y="280" font-family="Arial Black, Microsoft YaHei" font-size="96" font-weight="bold" fill="#0A0A0A">SuperPmAgent</text>
+  <text x="80" y="380" font-family="Microsoft YaHei" font-size="40" fill="#0A0A0A">AI 驱动的产品经理 Agent</text>
+  <circle cx="1100" cy="180" r="60" fill="#7C3AED"/>
+  <circle cx="1100" cy="180" r="30" fill="#06B6D4"/>
+</svg>

@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 测试(本地,不进 git)
+docs/
+*_render_*.png
+
+# 产物
+*.pptx
+_selftest/out.*

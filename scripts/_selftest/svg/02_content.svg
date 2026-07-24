@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#FFFFFF"/>
+  <text x="640" y="90" font-family="Microsoft YaHei" font-size="52" font-weight="bold" fill="#0A0A0A" text-anchor="middle">核心功能</text>
+  <g transform="translate(80,180)">
+    <rect width="340" height="420" rx="24" fill="#7C3AED"/>
+    <text x="170" y="90" font-size="36" font-weight="bold" fill="#FFFFFF" text-anchor="middle">需求澄清</text>
+    <text x="170" y="150" font-size="22" fill="#FFFFFF" text-anchor="middle">自动拆解模糊需求</text>
+  </g>
+  <g transform="translate(470,180)">
+    <rect width="340" height="420" rx="24" fill="#06B6D4"/>
+    <text x="170" y="90" font-size="36" font-weight="bold" fill="#FFFFFF" text-anchor="middle">任务规划</text>
+  </g>
+  <g transform="translate(860,180)">
+    <rect width="340" height="420" rx="24" fill="#22C55E"/>
+    <text x="170" y="90" font-size="36" font-weight="bold" fill="#FFFFFF" text-anchor="middle">进度追踪</text>
+  </g>
+  <line x1="80" y1="660" x2="1200" y2="660" stroke="#0A0A0A" stroke-width="2"/>
+</svg>
