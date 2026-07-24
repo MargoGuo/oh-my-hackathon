@@ -1,6 +1,6 @@
 ---
 name: autpilot-oh-my-hackathon
-description: 黑客松参赛全流程自动化。从比赛题目要求出发,端到端推进——题目解析 → idea → 计划 → PPT → 项目说明书(飞书文档 + 架构文档)。覆盖从看到题目到交付全套参赛文档的完整链路,各阶段可跳转(已有 idea 从计划切入、已有项目跳过 idea)。PPT 借鉴 ppt-master(SVG→PPTX 可编辑 Native DrawingML),视觉风格不锁定(预设库或自定义)。IO skill,不写代码、不开 PR。
+description: 黑客松/比赛参赛**全流程一条龙**:题目解析 → idea → 计划+PRD → 路演 PPT → 项目说明书(飞书文档+架构图)。用户提"路演 PPT / PRD / 产品规划 / 项目说明书 / 参赛文档 / 黑客松 / 比赛"任一,且要**多份文档**时触发本 skill(产出全套,不是单点)。区别于 export-ppt(只出 PPT 大纲元数据)、gen-feishu-showcase(只出单篇飞书文档)——本 skill 端到端一条龙。已有项目+题目可跳过 idea、直达计划+PRD+PPT。PPT 用 skill 内置 svg2pptx(SVG→可编辑 PPTX,借鉴 ppt-master),视觉风格不锁定(NeoBrutalism/极简学术/商务蓝等预设或自定义)。IO skill,不写代码、不开 PR。
 argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏好 / 风格)"
 ---
 
@@ -55,18 +55,24 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 - `计划.md`:产品规划(定位 / **架构** / 里程碑 / 分工 / 风险)
 - `PRD.md`:功能规格(背景 / 目标 / 用户场景 / **功能清单+验收标准** / 非目标 / 评审契合)——给开发/评委看"具体做什么、怎么验"
 
-结构见 [deliverable-templates.md](deliverable-templates.md)。已有项目时,功能清单从 repo 真实能力拉,不发明。
+结构见 [deliverable-templates.md](references/deliverable-templates.md)。已有项目时,功能清单从 repo 真实能力拉,不发明。
 
 ### Stage 4 — PPT(路演)
 按 idea + 计划 + 评审标准 → 路演 PPT。
-**读 [ppt-pipeline.md](ppt-pipeline.md)**(借鉴 ppt-master,SVG→PPTX,含用户行为偏好)。
-**视觉风格读 [visual-style-guide.md](visual-style-guide.md)**(不锁定,按比赛调性/项目品牌/用户偏好选,选定写 `spec_lock.md` 锁全片)。
+
+**风格快速决策**(选定后读对应模板,细节见 [references/visual-style-guide.md](references/visual-style-guide.md)):
+- **年轻/创意/极客/Agent 主题** → NeoBrutalism(黄黑紫,叠字硬阴影)→ [references/svg-page-template.md](references/svg-page-template.md)
+- **论文/答辩/严谨学术** → 极简学术(白底深蓝,章节导航+红强调)→ [references/academic-style-template.md](references/academic-style-template.md)
+- **企业/行业赛/正式** → 商务蓝 → visual-style-guide 配色 + 参考 NeoBrutalism 页框架
+- 用户指定品牌色/参考站 → 自定义,提取色后套页框架
+**读 [ppt-pipeline.md](references/ppt-pipeline.md)**(借鉴 ppt-master,SVG→PPTX,含用户行为偏好)。
+**视觉风格读 [visual-style-guide.md](references/visual-style-guide.md)**(不锁定,按比赛调性/项目品牌/用户偏好选,选定写 `spec_lock.md` 锁全片)。
 产出:可编辑 PPTX(Native DrawingML)。
 
 ### Stage 5 — 项目说明书
 - **飞书产品文档**:产品定位/功能/价值/使用/亮点(评委视角)
 - **架构文档**:架构图(SVG,`whiteboard-cli --check` 验证 0 错)+ 技术说明
-**读 [feishu-publish.md](feishu-publish.md)** —— lark-cli 创建文档 + 嵌入架构 SVG + 踩坑(自包含,不依赖其他 skill)。
+**读 [feishu-publish.md](references/feishu-publish.md)** —— lark-cli 创建文档 + 嵌入架构 SVG + 踩坑(自包含,不依赖其他 skill)。
 产出:飞书文档 URL + 架构 SVG。
 
 ### 收尾 — 注册 IO 记录
@@ -88,7 +94,7 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 - 用户指定目录 / session 目录优先;否则用上面默认(`<cwd>/hackathon-<比赛slug>/`)
 - **IO 记录**(`derived_output` .json)仍回 `<session>/attachments/exports/`(协议要求,见 Stage 收尾)
 - 飞书文档产出是 URL(记到 IO 记录,不本地存内容)
-- 各 .md 的结构见 [deliverable-templates.md](deliverable-templates.md)
+- 各 .md 的结构见 [deliverable-templates.md](references/deliverable-templates.md)
 
 ## 阶段跳转(灵活)
 
@@ -104,7 +110,7 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 
 ## PPT 原则(核心)
 
-借鉴 ppt-master + 用户行为偏好,详见 [ppt-pipeline.md](ppt-pipeline.md):SVG 中间格式、可编辑 DrawingML、图标 `data-icon`、不造假、导出前全片扫描、`markerUnits=userSpaceOnUse`、灰字改黑、风格不锁定。
+借鉴 ppt-master + 用户行为偏好,详见 [ppt-pipeline.md](references/ppt-pipeline.md):SVG 中间格式、可编辑 DrawingML、图标 `data-icon`、不造假、导出前全片扫描、`markerUnits=userSpaceOnUse`、灰字改黑、风格不锁定。
 
 ## Output
 
@@ -123,6 +129,22 @@ Judging criteria aligned: <N/M>
 Risks: <list or none>
 Delivery Status: docs_generated
 ```
+
+## 文件职责(划分明确)
+
+| 文件 | 职责 | 何时读 |
+|---|---|---|
+| `SKILL.md`(本文件) | 主编排:5 阶段流水线 + 跳转 + 风格决策 + IO 协议 | 总是(skill 触发即载入) |
+| `references/deliverable-templates.md` | 各阶段产出 .md 的标准结构(题目解析/idea/计划/PRD/飞书/架构) | Stage 1/2/3/5 产出文档时 |
+| `references/ppt-pipeline.md` | PPT 生成管线 + svg2pptx 约束(单一来源) + 用户行为偏好 | Stage 4 生成 PPT 时 |
+| `references/svg-page-template.md` | NeoBrutalism 页设计模板(配色/字体/叠字/导航/15页结构) | 选 NeoBrutalism 风格时 |
+| `references/academic-style-template.md` | 极简学术页设计模板(亮蓝/Arial/章节导航/嵌图分栏) | 选学术风格时 |
+| `references/visual-style-guide.md` | 风格选型决策(5 预设 + 自定义品牌) | 不确定选哪个风格时 |
+| `references/feishu-publish.md` | 飞书发布(lark-cli + 嵌架构 SVG + 踩坑) | Stage 5 发布飞书文档时 |
+| `scripts/svg2pptx.py` | SVG→可编辑 PPTX 转换器(精简,python-pptx) | Stage 4 导出 PPTX 时 |
+| `scripts/_selftest/svg/` | 最小样例 SVG(可复现 demo) | 验证 svg2pptx 时 |
+
+> 职责不重叠:页元素的"怎么画"归两套风格模板;svg2pptx 的"支持什么/不支持什么"归 ppt-pipeline(单一来源,模板只引用);产出文档结构归 deliverable-templates。
 
 ## Scope (do not)
 

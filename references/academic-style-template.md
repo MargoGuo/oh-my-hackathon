@@ -81,6 +81,17 @@
 - **封面**:中部 `#1045C9` 深蓝横条(1280×310)+ 白色大标题(autopilot 100px)+ 副标;顶部 autopilot logo + 赛事
 - **目录**:左半屏 `#1045C9`(480×720)+ 白色"目录 CONTENTS";右侧 5 章节编号项(01-05 Arial + 章节名 + 子项)
 
+
+
+## 嵌图页分栏(左图右文 / 左文右图)
+
+架构页、闭环页等嵌真实图的页,用分栏(对标互联网 PPT,图示驱动):
+- **左图右文**:图占左半(x≈40-600,按原图比例),右半文字解释(x≈660+)
+- **左文右图**:文字左,图右
+- 中间竖分隔线(x=640,`#D1D5DB` 2px)
+- 图用 `<image href="img/xxx.png">`,相对 SVG 目录;先 `cp` 图到 `svg/img/`(英文命名避中文路径)
+- 图品牌若是旧名(pmpilot 等),文字用 autopilot,图作架构示意
+
 ## 关键差异(vs NeoBrutalism)
 
 | 元素 | NeoBrutalism | 学术(本文件) |
@@ -95,5 +106,7 @@
 | 图示 | 少 | **柱状图/流程图驱动** |
 
 ## svg2pptx 约束
+> **完整 svg2pptx 约束(支持/不支持元素、坐标映射)见 [ppt-pipeline.md](ppt-pipeline.md)。** 本文件只列风格特有补充。
+
 
 只用 `rect`/`text`/`tspan`/`circle`/`line`/`image`/`g transform="translate"`,不用 `path`/`polygon`/`<use>`/渐变/mask。箭头 = 细 `line` + 小 `circle`。字体名不带内层单引号。

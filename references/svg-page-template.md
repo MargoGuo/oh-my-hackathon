@@ -91,6 +91,8 @@
 - 圆角卡加 `rx="18"`
 
 ## svg2pptx 适配约束(精简版)
+> **完整 svg2pptx 约束(支持/不支持元素、坐标映射)见 [ppt-pipeline.md](ppt-pipeline.md)。** 本文件只列风格特有补充。
+
 
 - ✅ 用:`<rect>`(含 `rx` 圆角)、`<text>`/`<tspan>`、`<circle>`/`<ellipse>`、`<line>`、`<image>`、`<g transform="translate(...)">`
 - ❌ 不用(精简版跳过): `<path>`、`<polygon>`、`<use>`、`<style>`、渐变、mask、`<foreignObject>`、`transform="rotate(...)"`
