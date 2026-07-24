@@ -10,3 +10,8 @@ docs/
 # 产物
 *.pptx
 _selftest/out.*
+
+# pytest 产物
+.coverage
+.pytest_cache/
+htmlcov/
