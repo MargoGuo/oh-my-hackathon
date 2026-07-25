@@ -15,3 +15,4 @@ _selftest/out.*
 .coverage
 .pytest_cache/
 htmlcov/
+preview/
