@@ -1,6 +1,6 @@
 # PPT 生成管线(借鉴 ppt-master + 用户行为偏好)
 
-> 本 skill 的 PPT 部分按此管线生成。核心思想:**SVG 中间格式 + live preview 精修 + 导出可编辑 DrawingML PPTX**。
+> 本 skill 的 PPT 部分按此管线生成。核心思想:**SVG 中间格式 + preview 预览精修 + 导出可编辑 DrawingML PPTX**。
 
 ## 管线
 
@@ -8,7 +8,7 @@
 源(比赛 brief + 项目画像)
   → Strategist(信息架构 + 视觉风格 spec_lock)
   → Executor(逐页 SVG,只画精简版支持的元素:rect/text/circle/line/image/g)
-  → live preview 精修(用户反馈驱动,多轮)
+  → preview 预览精修(改 SVG → 重跑 preview.py 看 png,多轮)
   → 全片扫描(超界/灰字/叠字/对齐)
   → svg2pptx(skill 内置精简转换器,SVG 直转可编辑 PPTX)
   → 可编辑 PPTX(原生形状)
@@ -30,7 +30,7 @@
 > 从做 SuperPmAgent 路演 PPT 的实战中提炼,通用 skill 要保留:
 
 1. **可编辑 PPTX**:导出 Native DrawingML(真实形状),不要整页图片——交付后还要在 PowerPoint 里改
-2. **SVG 中间格式**:生成阶段在 SVG 上改,直观;live preview 实时看效果
+2. **SVG 中间格式**:生成阶段在 SVG 上改,直观;preview.py 渲染 png 看效果(不是实时,改完重跑)
 3. **强对比 + 大字**:投影友好;正文 ≥14px,标题 ≥26px,金句可 40+
 4. **多色不单调**:主色 + 辅色,多卡片用不同主题色区分(参考 visual-style-guide.md 预设)
 5. **图标用简单几何**:精简版不内联图标库——画圆/三角/小 rect 组合,或嵌预设小图;别依赖 `<use data-icon>`(会被跳过)
@@ -42,7 +42,7 @@
 11. **叠字投影模糊**:紫影+黑主双层叠字边缘发虚;关键大字(结语/金句)改单层黑;封面/演示页大字(≥96px)叠字可保留(够大不糊)
 12. **SVG 是最终源**:精简版 `svg2pptx` 直接把 SVG 转成 PPTX,SVG 文件就是最终版——要继续改就改 SVG 再重转,不会被中间步骤覆盖
 13. **改完重转**:精修 SVG 后重跑 `svg2pptx.py` 覆盖 PPTX 即可,无需 finalize/backup 等中间步骤
-14. **逐页精修是常态**:生成后预期会有多轮用户反馈精修(live preview + 浏览器 `Ctrl+F5` 强刷),别指望一次成
+14. **逐页精修是常态**:生成后预期会有多轮用户反馈精修(改 SVG → 重跑 preview.py 看新 png),别指望一次成
 
 ## 导出命令(skill 内置精简转换器)
 
@@ -73,7 +73,7 @@ python "$S/svg2pptx.py" --input <svg目录或单文件> --output exports/<name>.
 
 - ✅ 支持: `<rect>`/`<rect rx>`(圆角保留为 roundRect,可继续调)、`<text>`/`<tspan>`、`<circle>`/`<ellipse>`、`<line>`、`<image href>`(含 `data:base64`)、`<g transform translate/scale>`
 - ⚠️ 跳过(记 warning,不中断): `<path>`(自定义几何)、`<use data-icon>`(图标库内联)、渐变/mask/`<foreignObject>`
-- text 垂直定位是近似(基线 → 框顶偏移一个字号),精细对齐在 live preview 阶段手调
+- text 垂直定位是近似(基线 → 框顶偏移一个字号),精细对齐在 preview 阶段手调(改 SVG 坐标 → 重跑 preview.py 看 png)
 
 > 需 `<path>`/原生图表/动画等高级能力时,若环境另装了完整 ppt-master,可改调其 `finalize_svg.py`+`svg_to_pptx.py`——SVG 规范一致,产物可互换。默认走 skill 内置精简版即可满足黑客松路演 PPT。
 
@@ -97,4 +97,4 @@ python "$S/svg2pptx.py" --input <svg目录或单文件> --output exports/<name>.
 | 大字投影糊 | 紫影+黑叠字 | 关键大字改单层 |
 | 改了 SVG 没生效 | 没重跑 svg2pptx | 改 SVG 后重跑 `svg2pptx.py` 覆盖 PPTX |
 | 元素跑到画布外 | linter/拖动坐标错 | 导出前扫画外元素(负坐标/超1280×720) |
-| 预览"改了没生效" | 浏览器缓存 | `Ctrl+F5` 强刷 |
+| preview 没反映改动 | 没重跑 preview.py | 改 SVG 后重跑 `preview.py` 覆盖 png |
