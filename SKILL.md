@@ -67,6 +67,7 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 - 用户指定品牌色/参考站 → 自定义,提取色后套页框架
 **读 [ppt-pipeline.md](references/ppt-pipeline.md)**(,SVG→PPTX,含用户行为偏好)。
 **视觉风格读 [visual-style-guide.md](references/visual-style-guide.md)**(不锁定,按比赛调性/项目品牌/用户偏好选,选定写 `spec_lock.md` 锁全片)。
+**生成后自检**:读 [references/checklist.md](references/checklist.md) 逐项检查(P0 文字溢出/灰字/叠字/字号/path 跳过 + P1 全片扫描/架构过 --check/不造假),每条有 grep/preview 检查命令。
 产出:可编辑 PPTX(Native DrawingML)。
 
 ### Stage 5 — 项目说明书
@@ -137,6 +138,7 @@ Delivery Status: docs_generated
 | `SKILL.md`(本文件) | 主编排:5 阶段流水线 + 跳转 + 风格决策 + IO 协议 | 总是(skill 触发即载入) |
 | `references/deliverable-templates.md` | 各阶段产出 .md 的标准结构(题目解析/idea/计划/PRD/飞书/架构) | Stage 1/2/3/5 产出文档时 |
 | `references/ppt-pipeline.md` | PPT 生成管线 + svg2pptx 约束(单一来源) + 用户行为偏好 | Stage 4 生成 PPT 时 |
+| `references/checklist.md` | PPT 质量检查清单(P0/P1/P2 + grep 命令) | Stage 4 生成后自检 |
 | `references/svg-page-template.md` | NeoBrutalism 页设计模板(配色/字体/叠字/导航/15页结构) | 选 NeoBrutalism 风格时 |
 | `references/academic-style-template.md` | 极简学术页设计模板(亮蓝/Arial/章节导航/嵌图分栏) | 选学术风格时 |
 | `references/visual-style-guide.md` | 风格选型决策(5 预设 + 自定义品牌) | 不确定选哪个风格时 |
