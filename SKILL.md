@@ -27,7 +27,7 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 按所用阶段检查,缺哪个标"待装"并提示用户:
 
 - **Stage 1 fetch**:`fetch_url_content`(web runtime) / `WebFetch`(standalone Claude Code) / `git clone` —— 至少一个可用
-- **Stage 4 PPT**:skill 内置 `scripts/svg2pptx.py`(python-pptx,借鉴 ppt-master 思路精简实现,缺则提示安装)+ Python 3.10+
+- **Stage 4 PPT**:skill 内置 `scripts/svg2pptx.py`(python-pptx 精简自实现,缺则提示安装)+ Python 3.10+
 - **Stage 5 飞书**:`lark-cli`(已认证)+ 飞书文件夹 token
 - **Stage 5 架构图**:`whiteboard-cli`(SVG 校验)
 
@@ -65,7 +65,7 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 - **论文/答辩/严谨学术** → 极简学术(白底深蓝,章节导航+红强调)→ [references/academic-style-template.md](references/academic-style-template.md)
 - **企业/行业赛/正式** → 商务蓝 → visual-style-guide 配色 + 参考 NeoBrutalism 页框架
 - 用户指定品牌色/参考站 → 自定义,提取色后套页框架
-**读 [ppt-pipeline.md](references/ppt-pipeline.md)**(借鉴 ppt-master,SVG→PPTX,含用户行为偏好)。
+**读 [ppt-pipeline.md](references/ppt-pipeline.md)**(,SVG→PPTX,含用户行为偏好)。
 **视觉风格读 [visual-style-guide.md](references/visual-style-guide.md)**(不锁定,按比赛调性/项目品牌/用户偏好选,选定写 `spec_lock.md` 锁全片)。
 产出:可编辑 PPTX(Native DrawingML)。
 
@@ -110,7 +110,7 @@ argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏�
 
 ## PPT 原则(核心)
 
-借鉴 ppt-master + 用户行为偏好,详见 [ppt-pipeline.md](references/ppt-pipeline.md):SVG 中间格式、可编辑 DrawingML、图标 `data-icon`、不造假、导出前全片扫描、`markerUnits=userSpaceOnUse`、灰字改黑、风格不锁定。
+用户行为偏好,详见 [ppt-pipeline.md](references/ppt-pipeline.md):SVG 中间格式、可编辑 DrawingML、图标 `data-icon`、不造假、导出前全片扫描、`markerUnits=userSpaceOnUse`、灰字改黑、风格不锁定。
 
 ## Output
 
