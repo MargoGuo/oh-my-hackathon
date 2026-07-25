@@ -1,6 +1,6 @@
 ---
 name: autpilot-oh-my-hackathon
-description: 黑客松/比赛参赛**全流程一条龙**:题目解析 → idea → 计划+PRD → 路演 PPT → 项目说明书(飞书文档+架构图)。用户提"路演 PPT / PRD / 产品规划 / 项目说明书 / 参赛文档 / 黑客松 / 比赛"任一,且要**多份文档**时触发本 skill(产出全套)。已有项目+题目可跳过 idea、直达计划+PRD+PPT。PPT 用 skill 内置 svg2pptx(SVG→可编辑 PPTX),视觉风格不锁定(NeoBrutalism/极简学术/商务蓝等预设或自定义)。IO skill,不写代码、不开 PR。
+description: 黑客松/比赛参赛文档全流程自动化。用户要参赛(看到比赛/题目)或要产出参赛交付文档(路演 PPT、PRD、产品规划、项目说明书、架构图等)时触发——产出全套,端到端。已有项目或已有 idea 可中途切入。
 argument-hint: "比赛题目要求/brief(+ 可选已有项目 repo / 团队偏好 / 风格)"
 ---
 
