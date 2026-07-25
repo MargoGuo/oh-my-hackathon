@@ -46,6 +46,17 @@
 
 ## 导出命令(skill 内置精简转换器)
 
+**先预览(改 SVG 后秒看效果,不开 PowerPoint)**:
+
+```bash
+S=${CLAUDE_PLUGIN_ROOT}/skills/oh-my-hackathon/scripts
+python "$S/preview.py" --input <svg目录> --output preview/
+```
+
+渲染每页 png(模拟 pptx 实际效果,含 margin=0 / 文本定位等转换逻辑),浏览器开 `preview/preview_NN.png`。改 SVG 重跑覆盖——精修闭环:改 SVG → preview → 满意 → svg2pptx 导出。
+
+**导出 PPTX**:
+
 本 skill 自带 `scripts/svg2pptx.py`——**借鉴 ppt-master 思路、用 python-pptx 重新实现的精简 SVG→PPTX(~400 行)**,不依赖外部 ppt-master 安装,体积可控。
 
 ```bash

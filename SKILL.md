@@ -142,6 +142,7 @@ Delivery Status: docs_generated
 | `references/visual-style-guide.md` | 风格选型决策(5 预设 + 自定义品牌) | 不确定选哪个风格时 |
 | `references/feishu-publish.md` | 飞书发布(lark-cli + 嵌架构 SVG + 踩坑) | Stage 5 发布飞书文档时 |
 | `scripts/svg2pptx.py` | SVG→可编辑 PPTX 转换器(精简,python-pptx) | Stage 4 导出 PPTX 时 |
+| `scripts/preview.py` | SVG→png 快速预览(模拟 pptx,改完秒看) | Stage 4 改 SVG 后看效果 |
 | `scripts/_selftest/svg/` | 最小样例 SVG(可复现 demo) | 验证 svg2pptx 时 |
 
 > 职责不重叠:页元素的"怎么画"归两套风格模板;svg2pptx 的"支持什么/不支持什么"归 ppt-pipeline(单一来源,模板只引用);产出文档结构归 deliverable-templates。
