@@ -11,7 +11,8 @@
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)
 ![Stages](https://img.shields.io/badge/stages-5-blueviolet)
 
-<!-- TODO: 替换为产出示例图 <img src="assets/example.png" width="800"> -->
+<!-- 实际产出示例:路演 PPT 封面页(案例:TripTrace 旅迹 · 外滩黑客松 AI Coding 大赛,NeoBrutalism 红白主题) -->
+<img src="assets/sample-cover.png" width="820">
 
 请将下方提示词复制给你的 Agent,实现一键安装与配置:
 
@@ -145,6 +146,24 @@ python "$S/svg2pptx.py" --input <svg目录或单文件> --output exports/<name>.
 ```bash
 python "$S/validate_deck.py" exports/<name>.pptx
 ```
+
+<details>
+<summary>📸 看看实际产出的路演 PPT 长什么样</summary>
+
+下面两页来自一次真实参赛交付(案例:TripTrace 旅迹 · 外滩黑客松 AI Coding 大赛),由本 skill 的 SVG → 可编辑 PPTX 管线生成,均为原生形状,赛后还能在 PowerPoint 里继续改。
+
+<table>
+  <tr>
+    <td align="center"><b>痛点页</b> · 左右分栏对比</td>
+    <td align="center"><b>方案流程页</b> · 三步闭环</td>
+  </tr>
+  <tr>
+    <td><img src="assets/sample-pain-points.png"></td>
+    <td><img src="assets/sample-flow.png"></td>
+  </tr>
+</table>
+
+</details>
 
 ---
 
